@@ -1,8 +1,17 @@
 import React from 'react';
 
-import styles from './page.module.css';
-
+import { PostCard } from '@/components';
+import { postCard } from '@/mock';
 
 export default function Home() {
-	return <div className={styles.main}>Hello World</div>;
+	return (
+		<div>
+			<PostCard
+				title={postCard.title}
+				tag={postCard.tag}
+				description={postCard.description}
+				likesNumber={postCard.likesNumber}
+			/>
+		</div>
+	);
 }
