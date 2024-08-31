@@ -1,0 +1,4 @@
+.tag::after {
+	content: '•';
+	margin: 0 5px;
+}
