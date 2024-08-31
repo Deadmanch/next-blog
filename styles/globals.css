@@ -1,0 +1,19 @@
+:root {
+	--black: #2c2c2c;
+	--gray-dark: #303030;
+	--gray: #4b4b4b;
+	--gray-light: #6e6e6e;
+	--white: #ffffff;
+	--blue: #1473e6;
+	--blue-light: #46a5ff;
+	--placeholder-color: rgba(78, 93, 124, 0.5);
+
+	--font-family: 'Noto Sans', sans-serif;
+}
+
+html,
+body {
+	max-width: 100vw;
+	overflow-x: hidden;
+	color: var(--black);
+}
