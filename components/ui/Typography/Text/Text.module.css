@@ -1,0 +1,18 @@
+.text {
+	font-weight: 400;
+}
+
+.s {
+	font-size: 12px;
+	line-height: 18px;
+}
+
+.m {
+	font-size: 14px;
+	line-height: 21px;
+}
+
+.l {
+	font-size: 18px;
+	line-height: 32px;
+}
