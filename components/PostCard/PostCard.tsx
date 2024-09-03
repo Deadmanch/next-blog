@@ -10,7 +10,7 @@ import { PostTag } from '../PostTag/PostTag';
 
 import styles from './PostCard.module.css';
 
-interface PostCardProps extends HTMLAttributes<HTMLDivElement> {
+export interface PostCardProps extends HTMLAttributes<HTMLDivElement> {
 	title: string;
 	description?: string;
 	tag?: string;
