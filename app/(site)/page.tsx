@@ -7,8 +7,10 @@ import styles from './page.module.css';
 
 export default function Home() {
 	return (
-		<Container className={styles.container}>
-			<PostsGroupList items={postCards} />
-		</Container>
+		<main>
+			<Container className={styles.container}>
+				<PostsGroupList items={postCards} />
+			</Container>
+		</main>
 	);
 }
