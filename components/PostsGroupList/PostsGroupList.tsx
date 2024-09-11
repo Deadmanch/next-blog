@@ -1,22 +1,18 @@
-import { PostCard, PostCardProps } from '../PostCard';
+import { IPost } from '@/interfaces';
+
+import { PostCard } from '../PostCard';
 
 import styles from './PostsGroupList.module.css';
 
 interface PostsGroupListProps {
-	items: PostCardProps[];
+	items: IPost[];
 }
 
 export const PostsGroupList = ({ items }: PostsGroupListProps) => {
 	return (
 		<div className={styles.postsGroupList}>
 			{items.map((item) => (
-				<PostCard
-					key={item.title}
-					title={item.title}
-					description={item.description}
-					tag={item.tag}
-					likesNumber={item.likesNumber}
-				/>
+				<PostCard key={item.id} items={item} />
 			))}
 		</div>
 	);
