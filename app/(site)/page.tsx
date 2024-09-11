@@ -1,15 +1,17 @@
 import React from 'react';
 
 import { Container, PostsGroupList } from '@/components';
-import { postCards } from '@/mock';
+import { getPosts } from '@/api/getPosts';
+import { IPost } from '@/interfaces';
 
 import styles from './page.module.css';
 
-export default function Home() {
+export default async function Home() {
+	const postCards: IPost[] = await getPosts();
 	return (
 		<main>
 			<Container className={styles.container}>
-				<PostsGroupList items={postCards} />
+				{postCards && <PostsGroupList items={postCards} />}
 			</Container>
 		</main>
 	);
