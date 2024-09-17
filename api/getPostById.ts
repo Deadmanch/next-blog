@@ -1,17 +1,8 @@
-import { API } from './api';
+import { IPost } from '@/interfaces';
 
-export const getPostsById = async (id: string) => {
-	try {
-		const res = await fetch(API.posts.getPostById + `/${id}`, {
-			method: 'GET',
-			headers: { 'Content-Type': 'application/json' }
-		});
-		if (!res.ok) {
-			console.error('Failed to get post by id:', res.statusText);
-			throw new Error(res.statusText);
-		}
-		return res.json();
-	} catch (error) {
-		console.error('Failed to get post by id:', error);
-	}
+import { API } from './api';
+import { request } from './request';
+
+export const getPostsById = async (id: string): Promise<IPost> => {
+	return request<IPost>({ url: `${API.posts.getPostById}/${id}` });
 };
