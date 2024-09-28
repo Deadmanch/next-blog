@@ -1,0 +1,37 @@
+.textarea {
+	display: flex;
+	flex-direction: column;
+	gap: 4px;
+}
+
+.textareaField {
+	width: 100%;
+	border: 1px solid rgba(40, 40, 40, 0.16);
+	border-radius: 8px;
+	padding: 18px 30px;
+	font-size: 15px;
+	font-weight: 400;
+	font-family: var(--font-family);
+	&::placeholder {
+		color: var(--placeholder-color);
+	}
+}
+
+.textareaFieldError {
+	border: 1px solid var(--red);
+}
+
+.label {
+	font-size: 12px;
+	font-weight: 700;
+	color: var(--gray-dark);
+}
+
+.error {
+	font-size: 12px;
+	color: var(--red);
+}
+
+.required {
+	color: var(--red);
+}
