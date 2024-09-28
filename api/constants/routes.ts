@@ -1,3 +1,4 @@
 export const ApiRoutes = {
-	posts: '/posts'
+	posts: '/posts',
+	comments: '/comments'
 };
