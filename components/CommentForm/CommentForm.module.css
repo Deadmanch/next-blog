@@ -3,31 +3,3 @@
 	flex-direction: column;
 	gap: 20px;
 }
-
-.panel {
-	padding: 20px;
-	border-radius: 8px;
-	position: relative;
-	color: var(--black);
-}
-
-.success {
-	background-color: var(--green);
-}
-.successTitle {
-	color: var(--white);
-	font-weight: 600;
-	margin-bottom: 12px;
-	text-align: center;
-}
-
-.error {
-	background-color: var(--red);
-}
-
-.close {
-	position: absolute;
-	top: 20px;
-	right: 20px;
-	cursor: pointer;
-}

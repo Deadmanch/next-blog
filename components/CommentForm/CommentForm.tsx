@@ -7,8 +7,7 @@ import { clsx } from 'clsx';
 
 import { updatePostComment } from '@/api/updatePostComment';
 import { ICommentRequest } from '@/interfaces';
-import { Button, Input, Textarea } from '@/components';
-import CloseIcon from '@/public/assets/icons/close.svg';
+import { Button, Input, Notification, Textarea } from '@/components';
 
 import { createCommentSchema } from './schema';
 import styles from './CommentForm.module.css';
@@ -72,17 +71,13 @@ export const CommentForm = ({ postId, className, ...props }: CommentFormProps) =
 				required
 			/>
 			{isSuccess && (
-				<div className={clsx(styles.success, styles.panel)}>
-					<div className={styles.successTitle}>Ваш комментарий отправлен</div>
-					<CloseIcon className={styles.close} onClick={() => setIsSuccess(false)} />
-				</div>
+				<Notification
+					type='success'
+					message='Комментарий успешно отправлен'
+					onClick={() => setIsSuccess(false)}
+				/>
 			)}
-			{error && (
-				<div className={clsx(styles.error, styles.panel)}>
-					{error}
-					<CloseIcon className={styles.close} onClick={() => setIsError('')} />
-				</div>
-			)}
+			{error && <Notification type='error' message={error} onClick={() => setIsError('')} />}
 			<Button>Отправить</Button>
 		</form>
 	);
