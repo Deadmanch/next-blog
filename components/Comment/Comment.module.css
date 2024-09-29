@@ -1,0 +1,30 @@
+.comment {
+	display: flex;
+	flex-direction: column;
+	margin-bottom: 16px;
+	margin-top: 20px;
+	padding: 16px;
+	border-radius: 8px;
+	background-color: var(--white);
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.header {
+	display: flex;
+	margin-bottom: 12px;
+}
+
+.name {
+	font-weight: 700;
+	color: var(--gray);
+	&::after {
+		content: '•';
+		margin: 0 10px;
+		color: var(--gray-light);
+		font-weight: 400;
+	}
+}
+
+.email {
+	color: var(--gray-light);
+}

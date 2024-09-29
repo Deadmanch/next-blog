@@ -3,8 +3,9 @@ import { notFound } from 'next/navigation';
 import { getPostsById } from '@/api/getPostById';
 import { getPosts } from '@/api/getPosts';
 import { Container } from '@/components';
-import { IPost } from '@/interfaces';
+import { IComment, IPost } from '@/interfaces';
 import PostPage from '@/pages/PostPage';
+import { getCommentsByPostId } from '@/api/getCommentsByPostId';
 
 export async function generateStaticParams() {
 	const posts: IPost[] = await getPosts();
@@ -15,10 +16,11 @@ export async function generateStaticParams() {
 export default async function Post({ params }: { params: { id: string } }) {
 	const post: IPost = await getPostsById(params.id);
 	if (!post) notFound();
+	const comments: IComment[] = await getCommentsByPostId(params.id);
 
 	return (
 		<>
-			<Container>{post && <PostPage items={post} />}</Container>
+			<Container>{post && <PostPage items={post} comments={comments} />}</Container>
 		</>
 	);
 }

@@ -1,16 +1,17 @@
 import Image from 'next/image';
 
-import { IPost } from '@/interfaces';
-import { LikeCounter, PostTag, Title, Text, LikeButton } from '@/components';
+import { IComment, IPost } from '@/interfaces';
+import { LikeCounter, PostTag, Title, Text, LikeButton, Comment, CommentForm } from '@/components';
 import PostImage from '@/public/assets/images/post-img.png';
 
 import styles from './PostPage.module.css';
 
 interface Props {
 	items: IPost;
+	comments?: IComment[];
 }
 
-export default function PostPage({ items }: Props) {
+export default function PostPage({ items, comments }: Props) {
 	return (
 		<article>
 			<Title className={styles.title}>{items.title}</Title>
@@ -29,6 +30,12 @@ export default function PostPage({ items }: Props) {
 					<Text size='l'>Понравилось? Жми</Text>
 					<LikeButton postId={items.id} />
 				</div>
+				<div>
+					<Title tag='h2'>Комментарии</Title>
+					{comments && comments.map((comment) => <Comment key={comment.id} comment={comment} />)}
+				</div>
+
+				<CommentForm postId={items.id} />
 			</div>
 		</article>
 	);
