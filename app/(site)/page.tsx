@@ -9,7 +9,7 @@ import styles from './page.module.css';
 export default async function Home() {
 	const postCards: IPost[] = await getPosts();
 	return (
-		<main>
+		<main className={styles.main}>
 			<Container className={styles.container}>
 				{postCards && <PostsGroupList items={postCards} />}
 			</Container>
