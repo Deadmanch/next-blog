@@ -75,6 +75,7 @@ export const CommentForm = ({ postId, className, ...props }: CommentFormProps) =
 					type='success'
 					message='Комментарий успешно отправлен'
 					onClick={() => setIsSuccess(false)}
+					tabIndex={0}
 				/>
 			)}
 			{error && <Notification type='error' message={error} onClick={() => setIsError('')} />}
