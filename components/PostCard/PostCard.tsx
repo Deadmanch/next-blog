@@ -1,8 +1,9 @@
+'use client';
 import { HTMLAttributes } from 'react';
 
 import { clsx } from 'clsx';
 import Image from 'next/image';
-import * as m from 'framer-motion/m';
+import { m, useReducedMotion } from 'framer-motion';
 
 import PostImage from '@/public/assets/images/post-img.png';
 import { LikeCounter, PostLink, Text, Title, PostTag } from '@/components';
@@ -16,18 +17,22 @@ export interface PostCardProps extends HTMLAttributes<HTMLDivElement> {
 }
 
 export const PostCard = ({ items, className, index }: PostCardProps) => {
+	const shouldReduceMotion = useReducedMotion();
 	const variants = {
 		hidden: { opacity: 0 },
 		visible: { opacity: 1 }
 	};
+	const animationProps = shouldReduceMotion
+		? {}
+		: {
+				variants: variants,
+				initial: 'hidden',
+				animate: 'visible',
+				transition: { delay: index * 0.25, ease: 'easeInOut', duration: 0.6 }
+			};
+
 	return (
-		<m.article
-			variants={variants}
-			initial='hidden'
-			animate='visible'
-			transition={{ delay: index * 0.25, ease: 'easeInOut', duration: 0.6 }}
-			className={clsx(styles.postCard, className)}
-		>
+		<m.article {...animationProps} className={clsx(styles.postCard, className)}>
 			<Image className={styles.image} src={PostImage} alt={items.title} />
 			<div className={styles.container}>
 				<div className={styles.info}>
