@@ -22,7 +22,7 @@ export const Notification = ({
 	return (
 		<div className={clsx(styles.notification, styles[type], className)} {...props}>
 			{message}
-			<button onClick={onClick} className={styles.close}>
+			<button onClick={onClick} className={styles.close} aria-label='Закрыть уведомление'>
 				<IconClose tabIndex={0} />
 			</button>
 		</div>
