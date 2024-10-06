@@ -1,3 +1,4 @@
+import { domAnimation, LazyMotion } from 'framer-motion';
 import { Open_Sans } from 'next/font/google';
 
 import '@/styles/globals.css';
@@ -12,7 +13,9 @@ export default function RootLayout({
 }>) {
 	return (
 		<html lang='ru'>
-			<body className={openSans.className}>{children}</body>
+			<body className={openSans.className}>
+				<LazyMotion features={domAnimation}>{children}</LazyMotion>
+			</body>
 		</html>
 	);
 }

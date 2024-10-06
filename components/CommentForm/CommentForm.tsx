@@ -49,6 +49,7 @@ export const CommentForm = ({ postId, className, ...props }: CommentFormProps) =
 				label='Ваше имя'
 				error={errors.name}
 				placeholder='Имя'
+				aria-invalid={errors.name ? true : false}
 				{...register('name')}
 				required
 			/>
@@ -58,6 +59,7 @@ export const CommentForm = ({ postId, className, ...props }: CommentFormProps) =
 				id='email'
 				label='Ваша электронная почта'
 				error={errors.email}
+				aria-invalid={errors.email ? true : false}
 				{...register('email')}
 				required
 			/>
@@ -67,6 +69,8 @@ export const CommentForm = ({ postId, className, ...props }: CommentFormProps) =
 				id='body'
 				label='Ваш комментарий'
 				error={errors.body}
+				aria-invalid={errors.body ? true : false}
+				aria-label='Укажите комментарий'
 				{...register('body')}
 				required
 			/>
@@ -75,9 +79,19 @@ export const CommentForm = ({ postId, className, ...props }: CommentFormProps) =
 					type='success'
 					message='Комментарий успешно отправлен'
 					onClick={() => setIsSuccess(false)}
+					tabIndex={0}
+					role='alert'
 				/>
 			)}
-			{error && <Notification type='error' message={error} onClick={() => setIsError('')} />}
+			{error && (
+				<Notification
+					type='error'
+					message={error}
+					onClick={() => setIsError('')}
+					tabIndex={0}
+					role='alert'
+				/>
+			)}
 			<Button>Отправить</Button>
 		</form>
 	);

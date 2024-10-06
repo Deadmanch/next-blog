@@ -25,7 +25,12 @@ export const LikeButton = ({ className, postId, ...props }: LikeButtonProps) => 
 	};
 
 	return (
-		<button {...props} className={clsx(styles.likeButton, className)} onClick={handleLikeClick}>
+		<button
+			{...props}
+			className={clsx(styles.likeButton, className)}
+			onClick={handleLikeClick}
+			aria-label='Поставить лайк на пост'
+		>
 			<LikeIcon className={clsx(styles.likeIcon, { [styles.liked]: liked })} />
 		</button>
 	);

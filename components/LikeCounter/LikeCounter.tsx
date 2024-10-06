@@ -10,7 +10,7 @@ export const LikeCounter = ({ numberLikes = 0 }: LikeCounterProps) => {
 	return (
 		<span className={styles.likeCounter}>
 			{numberLikes}
-			<LikeIcon />
+			<LikeIcon aria-label='Количество лайков на пост' />
 		</span>
 	);
 };

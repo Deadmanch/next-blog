@@ -11,8 +11,8 @@ interface PostsGroupListProps {
 export const PostsGroupList = ({ items }: PostsGroupListProps) => {
 	return (
 		<div className={styles.postsGroupList}>
-			{items.map((item) => (
-				<PostCard key={item.id} items={item} />
+			{items.map((item, index) => (
+				<PostCard key={item.id} items={item} index={index} />
 			))}
 		</div>
 	);
